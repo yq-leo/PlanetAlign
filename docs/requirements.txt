@@ -1,0 +1,8 @@
+sphinx
+sphinx-rtd-theme
+numpy
+matplotlib
+torch
+torch_geometric
+gdown
+POT

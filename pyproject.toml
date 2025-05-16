@@ -1,0 +1,22 @@
+[build-system]
+requires = ["flit_core >=3.2,<4"]
+build-backend = "flit_core.buildapi"
+
+[project]
+name = "PlanetAlign"
+authors = [{ name = "Qi Yu", email = "qiyu6@illinois.edu" }]
+dynamic = ["version", "description"]
+dependencies = [
+    "numpy",
+    "matplotlib",
+    "torch",
+    "torchvision",
+    "torchaudio",
+    "torch_geometric",
+    "gdown",
+    "POT"
+]
+
+[project.urls]
+Homepage = "https://github.com/yq-leo/PlanetAlign"
+Documentation = "https://planetalign.readthedocs.io"

@@ -1,7 +1,7 @@
-PyNetAlign.algorithms
+PlanetAlign.algorithms
 =====================
 
-.. currentmodule:: PyNetAlign.algorithms
+.. currentmodule:: PlanetAlign.algorithms
 
 .. autosummary::
     :nosignatures:

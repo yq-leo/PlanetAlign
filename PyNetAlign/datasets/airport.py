@@ -3,7 +3,7 @@ from pathlib import Path
 import os
 import torch
 
-from PyNetAlign.data import Dataset
+from PlanetAlign.data import Dataset
 from .utils import download_file_from_google_drive
 
 

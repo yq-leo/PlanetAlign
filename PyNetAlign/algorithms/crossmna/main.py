@@ -7,10 +7,10 @@ import time
 import psutil
 import os
 
-from PyNetAlign.data import Dataset
-from PyNetAlign.algorithms.base_model import BaseModel
-from PyNetAlign.utils import merge_pyg_graphs_on_anchors, get_pairwise_anchor_pairs
-from PyNetAlign.metrics import hits_ks_scores, mrr_score
+from PlanetAlign.data import Dataset
+from PlanetAlign.algorithms.base_model import BaseModel
+from PlanetAlign.utils import merge_pyg_graphs_on_anchors, get_pairwise_anchor_pairs
+from PlanetAlign.metrics import hits_ks_scores, mrr_score
 
 from .model import MultiNetworkEmb
 from .sampler import AliasSampler

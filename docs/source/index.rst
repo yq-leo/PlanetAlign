@@ -1,7 +1,7 @@
-Welcome to PyNetAlign's documentation!
+Welcome to PlanetAlign's documentation!
 ======================================
 
-**PyNetAlign** is a Python library for network alignment tasks built upon `PyTorch <https://pytorch.org>`_ and `PyTorch Geometric <https://pytorch-geometric.readthedocs.io/en/latest/>`_.
+**PlanetAlign** is a Python library for network alignment tasks built upon `PyTorch <https://pytorch.org>`_ and `PyTorch Geometric <https://pytorch-geometric.readthedocs.io/en/latest/>`_.
 
 ..
     Check out the :doc:`usage` section for further information, including

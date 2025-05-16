@@ -6,9 +6,9 @@ import time
 import psutil
 import os
 
-from PyNetAlign.data import Dataset
-from PyNetAlign.utils import get_anchor_pairs, get_batch_rwr_scores, get_normalized_neg_exp_dist
-from PyNetAlign.metrics import hits_ks_scores, mrr_score
+from PlanetAlign.data import Dataset
+from PlanetAlign.utils import get_anchor_pairs, get_batch_rwr_scores, get_normalized_neg_exp_dist
+from PlanetAlign.metrics import hits_ks_scores, mrr_score
 from .base_model import BaseModel
 
 

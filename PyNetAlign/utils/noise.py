@@ -5,7 +5,7 @@ import torch
 from torch_geometric.utils import to_undirected
 from torch_geometric.data import Data
 
-from PyNetAlign.data import Dataset
+from PlanetAlign.data import Dataset
 
 
 def perturb_edges(graph: Data,
@@ -72,7 +72,7 @@ def add_edge_noises(dataset: Dataset,
                     seed: Optional[int] = None,
                     inplace: bool = False) -> Dataset:
     """
-    Add structural noise to graphs in a PyNetAlign dataset by perturbing edges.
+    Add structural noise to graphs in a PlanetAlign dataset by perturbing edges.
     Parameters
     ----------
     dataset : PyG dataset
@@ -219,7 +219,7 @@ def add_attr_noises(dataset: Dataset,
                     seed: Optional[int] = None,
                     inplace: bool = False) -> Dataset:
     """
-    Add attribute noise to graphs in a PyNetAlign dataset by flipping node attributes.
+    Add attribute noise to graphs in a PlanetAlign dataset by flipping node attributes.
     Parameters
     ----------
     dataset : PyG dataset

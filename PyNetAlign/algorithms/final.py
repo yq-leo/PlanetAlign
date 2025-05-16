@@ -5,9 +5,9 @@ from torch_geometric.utils import to_dense_adj
 import psutil
 import os
 
-from PyNetAlign.data import Dataset
-from PyNetAlign.utils import get_anchor_pairs
-from PyNetAlign.metrics import hits_ks_scores, mrr_score
+from PlanetAlign.data import Dataset
+from PlanetAlign.utils import get_anchor_pairs
+from PlanetAlign.metrics import hits_ks_scores, mrr_score
 from .base_model import BaseModel
 
 

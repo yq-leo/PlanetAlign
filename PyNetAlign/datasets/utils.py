@@ -3,10 +3,10 @@ from pathlib import Path
 import os
 import gdown
 
-from PyNetAlign.data import Dataset
+from PlanetAlign.data import Dataset
 
 
-USER_AGENT = 'PyNetAlign'
+USER_AGENT = 'PlanetAlign'
 
 
 def download_file_from_google_drive(

@@ -5,10 +5,10 @@ import time
 import psutil
 import os
 
-from PyNetAlign.data import Dataset
-from PyNetAlign.utils import get_anchor_pairs, get_batch_rwr_scores, balance_samples, get_anchor_embeddings
-from PyNetAlign.metrics import hits_ks_scores, mrr_score
-from PyNetAlign.algorithms.base_model import BaseModel
+from PlanetAlign.data import Dataset
+from PlanetAlign.utils import get_anchor_pairs, get_batch_rwr_scores, balance_samples, get_anchor_embeddings
+from PlanetAlign.metrics import hits_ks_scores, mrr_score
+from PlanetAlign.algorithms.base_model import BaseModel
 
 from .utils import load_walks, extract_pairs, merge_graphs, ContextDataset, negative_sampling_exact
 from .model import Model

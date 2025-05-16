@@ -2,8 +2,8 @@ from typing import Union, Optional
 import warnings
 import torch
 
-from PyNetAlign.data import Dataset, BaseData
-from PyNetAlign.logger import TrainingLogger
+from PlanetAlign.data import Dataset, BaseData
+from PlanetAlign.logger import TrainingLogger
 
 
 class BaseModel:
@@ -58,7 +58,7 @@ class BaseModel:
 
     @staticmethod
     def check_input_graphs(dataset: Dataset, gids: Union[list[int], tuple[int, ...]]):
-        assert isinstance(dataset, Dataset) or isinstance(dataset, BaseData), 'Input dataset must be a PyNetAlign Dataset or BaseData object'
+        assert isinstance(dataset, Dataset) or isinstance(dataset, BaseData), 'Input dataset must be a PlanetAlign Dataset or BaseData object'
         assert all([0 <= gid < len(dataset.pyg_graphs) for gid in gids]), 'Invalid graph IDs'
         assert len(set(gids)) == len(gids), 'Graph IDs must be unique'
 

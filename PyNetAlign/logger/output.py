@@ -1,7 +1,7 @@
 from typing import Optional, Union, List, Tuple
 import warnings
 
-from PyNetAlign.metrics import hits_ks_scores, mrr_score
+from PlanetAlign.metrics import hits_ks_scores, mrr_score
 
 
 def eval_and_print_basic(similarity, test_pairs,

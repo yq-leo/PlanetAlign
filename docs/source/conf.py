@@ -4,13 +4,13 @@ import os
 import sys
 import datetime
 
-# Add the parent directory (where PyNetAlign is) to sys.path
+# Add the parent directory (where PlanetAlign is) to sys.path
 sys.path.insert(0, os.path.abspath("../.."))
 
-import PyNetAlign
+import PlanetAlign
 
 # -- Project information
-project = 'PyNetAlign'
+project = 'PlanetAlign'
 copyright = f'{datetime.datetime.now().year}, Qi Yu'
 author = 'Qi Yu'
 
@@ -54,15 +54,15 @@ html_theme = 'sphinx_rtd_theme'
 # -- Options for EPUB output
 epub_show_urls = 'footnote'
 
-print("==== Debugging PyNetAlign ====")
-print("PyNetAlign found:", PyNetAlign)
-print("Available attributes:", dir(PyNetAlign))
+print("==== Debugging PlanetAlign ====")
+print("PlanetAlign found:", PlanetAlign)
+print("Available attributes:", dir(PlanetAlign))
 
 
 def rst_jinja_render(app, _, source):
     """Enable Jinja templating in .rst files."""
     if hasattr(app.builder, "templates"):
-        rst_context = {"PyNetAlign": PyNetAlign}
+        rst_context = {"PlanetAlign": PlanetAlign}
         source[0] = app.builder.templates.render_string(source[0], rst_context)
 
 

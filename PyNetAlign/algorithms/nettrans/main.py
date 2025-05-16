@@ -6,10 +6,10 @@ import time
 import psutil
 import os
 
-from PyNetAlign.data import Dataset
-from PyNetAlign.utils import get_anchor_pairs, get_anchor_embeddings, balance_samples
-from PyNetAlign.algorithms.base_model import BaseModel
-from PyNetAlign.metrics import hits_ks_scores, mrr_score
+from PlanetAlign.data import Dataset
+from PlanetAlign.utils import get_anchor_pairs, get_anchor_embeddings, balance_samples
+from PlanetAlign.algorithms.base_model import BaseModel
+from PlanetAlign.metrics import hits_ks_scores, mrr_score
 
 from .model import NetTransModel
 from .data import ContextDataset

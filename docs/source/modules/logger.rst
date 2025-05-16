@@ -1,16 +1,16 @@
-PyNetAlign.logger
+PlanetAlign.logger
 =====================
 
-.. currentmodule:: PyNetAlign.logger
+.. currentmodule:: PlanetAlign.logger
 
 .. autosummary::
     :nosignatures:
     :toctree: ../generated
 
-    {% for cls in PyNetAlign.logger.classes %}
+    {% for cls in PlanetAlign.logger.classes %}
       {{ cls }}
     {% endfor %}
 
-.. automodule:: PyNetAlign.logger
+.. automodule:: PlanetAlign.logger
     :members:
     :undoc-members:

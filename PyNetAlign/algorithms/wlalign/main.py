@@ -7,10 +7,10 @@ from torch_geometric.data import Data
 import psutil
 import os
 
-from PyNetAlign.data import Dataset
-from PyNetAlign.utils import get_anchor_pairs, merge_pyg_graphs_on_anchors, pairwise_cosine_similarity
-from PyNetAlign.metrics import hits_ks_scores, mrr_score
-from PyNetAlign.algorithms.base_model import BaseModel
+from PlanetAlign.data import Dataset
+from PlanetAlign.utils import get_anchor_pairs, merge_pyg_graphs_on_anchors, pairwise_cosine_similarity
+from PlanetAlign.metrics import hits_ks_scores, mrr_score
+from PlanetAlign.algorithms.base_model import BaseModel
 
 from .model import aggregate_label, EmbeddingModel, NegativeSamplingLoss
 from .utils import (get_anchor_based_embeddings, get_degree_exp_distribution, get_pyg_successors, get_pyg_predecessors,

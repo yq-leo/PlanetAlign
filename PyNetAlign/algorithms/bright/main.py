@@ -4,10 +4,10 @@ from torch.optim.lr_scheduler import CosineAnnealingLR
 import psutil
 import os
 
-from PyNetAlign.data import Dataset
-from PyNetAlign.utils import get_anchor_pairs, get_batch_rwr_scores, pairwise_cosine_similarity
-from PyNetAlign.metrics import hits_ks_scores, mrr_score
-from PyNetAlign.algorithms.base_model import BaseModel
+from PlanetAlign.data import Dataset
+from PlanetAlign.utils import get_anchor_pairs, get_batch_rwr_scores, pairwise_cosine_similarity
+from PlanetAlign.metrics import hits_ks_scores, mrr_score
+from PlanetAlign.algorithms.base_model import BaseModel
 
 from .model import BrightUNet, BrightANet, MarginalRankingLoss
 

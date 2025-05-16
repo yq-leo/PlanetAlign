@@ -7,9 +7,9 @@ import ot
 import psutil
 import os
 
-from PyNetAlign.data import Dataset
-from PyNetAlign.utils import get_batch_rwr_scores, pairwise_cosine_similarity
-from PyNetAlign.algorithms.base_model import BaseModel
+from PlanetAlign.data import Dataset
+from PlanetAlign.utils import get_batch_rwr_scores, pairwise_cosine_similarity
+from PlanetAlign.algorithms.base_model import BaseModel
 
 from .mot import *
 from .metrics import multi_align_hits_ks_scores, multi_align_mrr_score

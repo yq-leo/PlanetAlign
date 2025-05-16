@@ -5,10 +5,10 @@ import time
 import psutil
 import os
 
-from PyNetAlign.data import Dataset
-from PyNetAlign.utils import get_anchor_pairs, pairwise_cosine_similarity
-from PyNetAlign.metrics import hits_ks_scores, mrr_score
-from PyNetAlign.algorithms.base_model import BaseModel
+from PlanetAlign.data import Dataset
+from PlanetAlign.utils import get_anchor_pairs, pairwise_cosine_similarity
+from PlanetAlign.metrics import hits_ks_scores, mrr_score
+from PlanetAlign.algorithms.base_model import BaseModel
 
 from .model import GCNNet, GATNet, LGCN, TransLayer, WDiscriminator, ReconDNN
 from .train import pred_anchor_links_from_embeddings, train_supervise_align, train_wgan_adv_pseudo_self, \

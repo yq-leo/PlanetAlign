@@ -1,7 +1,7 @@
-PyNetAlign.datasets
+PlanetAlign.datasets
 ===================
 
-.. currentmodule:: PyNetAlign.datasets
+.. currentmodule:: PlanetAlign.datasets
 
 .. autosummary::
     :nosignatures:

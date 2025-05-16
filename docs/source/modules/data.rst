@@ -1,6 +1,6 @@
-PyNetAlign.data
+PlanetAlign.data
 ===============
 
-.. currentmodule:: PyNetAlign.data
+.. currentmodule:: PlanetAlign.data
 
 .. autoclass:: Dataset

@@ -1,17 +1,17 @@
-PyNetAlign.metrics
+PlanetAlign.metrics
 ===================
 
-.. currentmodule:: PyNetAlign.metrics
+.. currentmodule:: PlanetAlign.metrics
 
 .. autosummary::
     :nosignatures:
     :toctree: ../generated
 
-    {% for cls in PyNetAlign.metrics.classes %}
+    {% for cls in PlanetAlign.metrics.classes %}
       {{ cls }}
     {% endfor %}
 
-.. automodule:: PyNetAlign.metrics
+.. automodule:: PlanetAlign.metrics
     :members:
     :undoc-members:
 

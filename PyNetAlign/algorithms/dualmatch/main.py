@@ -3,10 +3,10 @@ import torch
 import torch.nn.functional as F
 from torch_geometric.utils import to_dense_adj
 
-from PyNetAlign.data import Dataset
-from PyNetAlign.utils import get_anchor_pairs
-from PyNetAlign.metrics import hits_ks_scores, mrr_score
-from PyNetAlign.algorithms.base_model import BaseModel
+from PlanetAlign.data import Dataset
+from PlanetAlign.utils import get_anchor_pairs
+from PlanetAlign.metrics import hits_ks_scores, mrr_score
+from PlanetAlign.algorithms.base_model import BaseModel
 
 
 class DualMatch(BaseModel):

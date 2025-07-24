@@ -1,25 +1,57 @@
-from typing import Union, Optional
+from typing import Union, Optional, List, Tuple
 import warnings
 import torch
 
+from PlanetAlign.utils import get_anchor_pairs
 from PlanetAlign.data import Dataset, BaseData
 from PlanetAlign.logger import TrainingLogger
+from PlanetAlign.metrics import hits_ks_scores, mrr_score
 
 
 class BaseModel:
-    # TODO: implement warnings for plain and attributed alignment methods
-    # TODO: implement warnings for supervised and unsupervised alignment methods
-
     def __init__(self, dtype: torch.dtype = torch.float32):
         assert dtype in [torch.float32, torch.float64], 'Invalid floating point dtype'
         self.dtype = dtype
         self.device = 'cpu'
+        self.S = None
 
     def train(self, *args, **kwargs):
         raise NotImplementedError
 
-    def test(self, *args, **kwargs):
-        raise NotImplementedError
+    def test(self,
+             dataset: Dataset,
+             gids: Union[List[int], Tuple[int, ...]],
+             metrics: tuple[str] | list[str] = None):
+        """
+        Parameters
+        ----------
+
+        dataset : Dataset
+            The dataset containing the graphs to be aligned and the training/test data.
+        gids : list[int] or tuple[int, ...]
+            The indices of the graphs in the dataset to be aligned.
+        metrics : tuple[str] or list[str], optional
+            The metrics to be computed after alignment. Default is None, which computes Hits@K (K=1, 10, 30, 50) and MRR metrics.
+        """
+
+        assert self.S is not None, 'Model is not trained yet, call train() method first'
+
+        results = {}
+
+        gid1, gid2 = gids
+        test_pairs = get_anchor_pairs(dataset.test_data, gid1, gid2)
+        if metrics is None:
+            hits = hits_ks_scores(self.S, test_pairs, mode='mean')
+            results.update({f'Hits@{k}': hits[k] for k in hits.keys()})
+            results['MRR'] = mrr_score(self.S, test_pairs, mode='mean')
+        else:
+            ks = [int(hit_metric.split('@')[-1]) for hit_metric in metrics if hit_metric.startswith('Hits@')]
+            hits = hits_ks_scores(self.S, test_pairs, ks=ks, mode='mean')
+            results.update({f'Hits@{k}': hits[k] for k in ks if k in hits})
+            if 'MRR' in metrics:
+                results['MRR'] = mrr_score(self.S, test_pairs, mode='mean')
+
+        return results
 
     def to(self, device: Union[str, torch.device]) -> 'BaseModel':
         try:

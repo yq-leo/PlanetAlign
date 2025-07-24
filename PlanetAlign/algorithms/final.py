@@ -140,7 +140,8 @@ class FINAL(BaseModel):
 
             if diff < tol:
                 break
-        
+
+        self.S = S
         return S, logger
 
     def init_node_feat(self, graph, use_attr=True):

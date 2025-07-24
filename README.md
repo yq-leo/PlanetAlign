@@ -20,3 +20,10 @@
 git clone https://github.com/yourusername/PlanetAlign.git
 cd PlanetAlign
 pip install -e .
+```
+
+---
+
+## 📃 Documentation & Tutorial
+
+For detailed documentations and a quick-start tutorial, please see https://planetalign.readthedocs.io/en/latest

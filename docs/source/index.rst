@@ -20,6 +20,16 @@ Welcome to PlanetAlign's documentation!
     get_started/example
 
 .. toctree::
+    :maxdepth: 1
+    :caption: Tutorials
+
+    tutorials/datasets
+    tutorials/algorithms
+    tutorials/effectiveness
+    tutorials/scalability
+    tutorials/robustness
+
+.. toctree::
    :maxdepth: 1
    :caption: Package Reference
 

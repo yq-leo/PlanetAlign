@@ -4,7 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [project]
 name = "PlanetAlign"
-authors = [{ name = "Qi Yu", email = "qiyu6@illinois.edu" }]
+authors = [{ name = "PLANETALIGN", email = "" }]
 dynamic = ["version", "description"]
 dependencies = [
     "numpy",
@@ -16,7 +16,3 @@ dependencies = [
     "gdown",
     "POT"
 ]
-
-[project.urls]
-Homepage = "https://github.com/yq-leo/PlanetAlign"
-Documentation = "https://planetalign.readthedocs.io"

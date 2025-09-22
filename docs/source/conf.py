@@ -11,8 +11,8 @@ import PlanetAlign
 
 # -- Project information
 project = 'PlanetAlign'
-copyright = f'{datetime.datetime.now().year}, Qi Yu'
-author = 'Qi Yu'
+copyright = f'{datetime.datetime.now().year}, PLANETALIGN'
+author = 'PLANETALIGN'
 
 release = '0.1'
 version = '0.1.0'

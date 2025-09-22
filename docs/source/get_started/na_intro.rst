@@ -10,7 +10,7 @@ Introduction to Network Alignment
 Problem Definition
 ----------
 
-.. image:: ../_imgs/na.pdf
+.. image:: ../_images/na.pdf
   :align: center
   :width: 1000px
 

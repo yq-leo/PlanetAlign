@@ -10,7 +10,7 @@ This guide provides a minimal working example for running a built-in network ali
 Installation
 ------------
 
-Install from source by downloading from the [anonymous repository](https://anonymous.4open.science/r/PlanetAlign-E9BA) and building locally:
+Install from source by downloading from the (anonymous repository)[https://anonymous.4open.science/r/PlanetAlign-E9BA] and building locally:
 
 .. code-block:: bash
 

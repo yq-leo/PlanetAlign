@@ -16,9 +16,10 @@
 
 ## 📦 Installation
 
+Download repo from https://anonymous.4open.science/r/PlanetAlign-E9BA, then run
+
 ```bash
-git clone https://github.com/yourusername/PlanetAlign.git
-cd PlanetAlign
+cd PlanetAlign-E9BA
 pip install -e .
 ```
 
@@ -26,4 +27,4 @@ pip install -e .
 
 ## 📃 Documentation & Tutorial
 
-For detailed documentations and a quick-start tutorial, please see https://planetalign.readthedocs.io/en/latest
+For detailed documentations and a quick-start tutorial, please see https://planetalign.netlify.app

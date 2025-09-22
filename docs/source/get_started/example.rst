@@ -10,18 +10,11 @@ This guide provides a minimal working example for running a built-in network ali
 Installation
 ------------
 
-First, install PLANETALIGN via pip (recommended in a virtual environment):
+Install from source by downloading from the [anonymous repository](https://anonymous.4open.science/r/PlanetAlign-E9BA) and building locally:
 
 .. code-block:: bash
 
-    pip install planetalign
-
-You may also install from source:
-
-.. code-block:: bash
-
-    git clone https://github.com/yq-leo/PlanetAlign.git
-    cd PlanetAlign
+    cd PlanetAlign-E9BA
     pip install -e .
 
 Basic Usage

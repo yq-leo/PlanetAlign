@@ -45,7 +45,7 @@ class FlickrLastFM(Dataset):
 
         if download:
             download_file_from_google_drive(
-                remote_file_id='1NVQTs9a81r3SHQnto5FaV8Pu24efrbGK',
+                remote_file_id='1zfZc6So7UEyVZHN-Uas-eAgckqk28gal',
                 save_filename='flickr-lastfm.pt',
                 root=root)
 

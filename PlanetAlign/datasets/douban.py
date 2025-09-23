@@ -46,7 +46,7 @@ class Douban(Dataset):
 
         if download:
             download_file_from_google_drive(
-                remote_file_id='1KnP4yzQIZ9J36x-or8uViYVc1eyacn95',
+                remote_file_id='1PMtPhwEPKUr-PP8LnYoYADh7-x22xbZ4',
                 save_filename='douban.pt',
                 root=root)
 

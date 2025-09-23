@@ -43,7 +43,7 @@ class Cora(Dataset):
 
         if download:
             download_file_from_google_drive(
-                remote_file_id='1ES5o-WNHcV6iFpt2alutJt2EtssvB02g',
+                remote_file_id='1cG9DoOxUcpCzWgWsxyTlp4XvHGNkY-oF',
                 save_filename='cora.pt',
                 root=root)
 

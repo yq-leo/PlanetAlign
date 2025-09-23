@@ -44,7 +44,7 @@ class ACM_DBLP(Dataset):
 
         if download:
             download_file_from_google_drive(
-                remote_file_id='1yr6Wi1cyHDl4V7vi5kmdhNIToJbtso7g',
+                remote_file_id='1-MecFHVRnlvqjmUbSGCizdvsedsiET98',
                 save_filename='ACM-DBLP.pt',
                 root=root)
 

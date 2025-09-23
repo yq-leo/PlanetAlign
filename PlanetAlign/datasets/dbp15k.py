@@ -44,7 +44,7 @@ class DBP15K_FR_EN(Dataset):
 
         if download:
             download_file_from_google_drive(
-                remote_file_id='1xpZqBYtuLvAFrLESzXAvB7P-tPXmGWTi',
+                remote_file_id='1_uMPync1Y1yXsNPldtqGAG7VRLmtlt2b',
                 save_filename='dbp15k_fr-en.pt',
                 root=root)
 
@@ -93,7 +93,7 @@ class DBP15K_JA_EN(Dataset):
 
         if download:
             download_file_from_google_drive(
-                remote_file_id='1RSf2tyx50zUpHnBGDKzg07CNkQqBekgL',
+                remote_file_id='1Xc4sWilV7v804JZHRQqo2LzAM8O2_lib',
                 save_filename='dbp15k_ja-en.pt',
                 root=root)
 
@@ -142,7 +142,7 @@ class DBP15K_ZH_EN(Dataset):
 
         if download:
             download_file_from_google_drive(
-                remote_file_id='18f5zsUBWYsSw5ACWQGFdsHQAkafuHqs5',
+                remote_file_id='1ccub0If-q6_6MotYVOyFZzSc5SDJ2Izr',
                 save_filename='dbp15k_zh-en.pt',
                 root=root)
 

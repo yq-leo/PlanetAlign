@@ -43,7 +43,7 @@ class Arenas(Dataset):
 
         if download:
             download_file_from_google_drive(
-                remote_file_id='10ajbVon_Vbp4HRPEAQGBAIYdza23qvpk',
+                remote_file_id='1Eup0eKuKOv9Pb5E70_0-BOM2igV95NdC',
                 save_filename='arenas.pt',
                 root=root)
 

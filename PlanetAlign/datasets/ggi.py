@@ -43,7 +43,7 @@ class GGI(Dataset):
 
         if download:
             download_file_from_google_drive(
-                remote_file_id='1V1HKFDmTaVAnQRyH3l5H-gVO0K3V0QcS',
+                remote_file_id='1BbnuLpo1gyiH1I7m1RNrRzjCwHv0C6aq',
                 save_filename='GGI.pt',
                 root=root)
 

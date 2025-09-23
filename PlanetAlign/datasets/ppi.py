@@ -44,7 +44,7 @@ class PPI(Dataset):
 
         if download:
             download_file_from_google_drive(
-                remote_file_id='1UuvzQh2DvBMu4Hqi5AaZpY92gfRmWabS',
+                remote_file_id='1gD0F3KJQP8oYTQqWiRmceOWbpjNj-WHy',
                 save_filename='PPI.pt',
                 root=root)
 

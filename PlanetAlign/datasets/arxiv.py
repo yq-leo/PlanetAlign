@@ -44,7 +44,7 @@ class ArXiv(Dataset):
 
         if download:
             download_file_from_google_drive(
-                remote_file_id='15IEZkaaK9nD1OBMWDvITN8UdRB_3s4G0',
+                remote_file_id='18SDQF7z1rUTmkl2-tzvUzpUg7JL2SvvV',
                 save_filename='arxiv.pt',
                 root=root)
 

@@ -44,7 +44,7 @@ class FoursquareTwitter(Dataset):
 
         if download:
             download_file_from_google_drive(
-                remote_file_id='1pTxudta3-Y65LGl92J1--5H6iztkOEbE',
+                remote_file_id='1dIfQH5chgMFmestU59qsD5EQgZVcKSoV',
                 save_filename='foursquare-twitter.pt',
                 root=root)
 

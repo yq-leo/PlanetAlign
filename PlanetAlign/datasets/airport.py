@@ -43,7 +43,7 @@ class Airport(Dataset):
 
         if download:
             download_file_from_google_drive(
-                remote_file_id='1JO-dQkRYEDyv6lyt_H0hEZkEJsz3B3O7',
+                remote_file_id='1XaeOcM9H_VbUplKBvUt3FD0WPeAsSXfq',
                 save_filename='airport.pt',
                 root=root)
 

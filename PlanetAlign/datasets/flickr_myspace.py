@@ -44,7 +44,7 @@ class FlickrMySpace(Dataset):
 
         if download:
             download_file_from_google_drive(
-                remote_file_id='1l-4PHwsUQfIgyByqKd1oNDkGNtx91Xhi',
+                remote_file_id='1B0Mit89nVk7ZnymTfGYHFZRRckV55neO',
                 save_filename='flickr-myspace.pt',
                 root=root)
 

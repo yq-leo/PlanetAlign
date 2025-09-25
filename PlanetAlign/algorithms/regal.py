@@ -182,7 +182,6 @@ class REGAL(BaseModel):
         neighborhood = self.get_k_hop_neighbors(graph, self.num_layers)
         num_features = int(np.log(max_degree) / np.log(self.buckets)) + 1
 
-        # TODO: Optimize this part (1. vectorized manner may be possible, 2. get_k_hop_neighbors may not be necessary)
         structural_embedding = torch.zeros(graph.num_nodes, num_features)
         for n in range(graph.num_nodes):
             for layer in neighborhood[n].keys():

@@ -184,7 +184,6 @@ class WLAlign(BaseModel):
         candidate_nodes2 = torch.from_numpy(candidate_pairs[:, 1]).to(self.device)
 
         node_noise = get_nodes_outside_subgraph(gnd_subgraph, merged_graph)
-        # TODO: order degree distribution
         nodes_dist = torch.from_numpy(get_degree_exp_distribution(merged_graph.edge_index.flatten())).to(self.device)
         noise_dist = torch.from_numpy(get_degree_exp_distribution(node_noise)).to(self.device)
         if noise_dist.shape[0] == 0:

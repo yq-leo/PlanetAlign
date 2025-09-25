@@ -275,6 +275,5 @@ class PARROT(BaseModel):
             if torch.max(torch.abs(out_cross_dist - out_cross_dist_old)) < tol:
                 break
 
-        # TODO: Why? Remove this line
         out_cross_dist = (1 - self.gamma) * out_cross_dist
         return out_cross_dist

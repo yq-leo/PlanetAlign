@@ -63,7 +63,6 @@ class FINAL(BaseModel):
 
         assert tol > 0, 'Tolerance must be positive'
         self.check_inputs(dataset, (gid1, gid2), plain_method=False, use_attr=use_attr, pairwise=True, supervised=True)
-        # TODO: add unsupervised version
 
         logger = self.init_training_logger(dataset, use_attr, additional_headers=['memory', 'infer_time'], save_log=save_log)
         process = psutil.Process(os.getpid())
@@ -83,7 +82,6 @@ class FINAL(BaseModel):
 
         N = torch.zeros(n2, n1, dtype=self.dtype).to(self.device)
         d = torch.zeros(n2, n1, dtype=self.dtype).to(self.device)
-        # TODO: compute h by degree similarity
         h = torch.zeros(n2, n1, dtype=self.dtype).to(self.device)
         h[anchor_links[:, 1], anchor_links[:, 0]] = 1
         S = torch.clone(h).T

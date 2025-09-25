@@ -108,7 +108,6 @@ class NeXtAlign(BaseModel):
 
         self.check_inputs(dataset, (gid1, gid2), plain_method=False, use_attr=use_attr, pairwise=True, supervised=True)
 
-        # TODO: fix the bug when the number of nodes in the first graph is larger than the second graph
         if dataset.pyg_graphs[gid1].num_nodes > dataset.pyg_graphs[gid2].num_nodes:
             gid1, gid2 = gid2, gid1
 

@@ -73,6 +73,7 @@ def add_edge_noises(dataset: Dataset,
                     inplace: bool = False) -> Dataset:
     """
     Add structural noise to graphs in a PlanetAlign dataset by perturbing edges.
+
     Parameters
     ----------
     dataset : PyG dataset
@@ -220,6 +221,7 @@ def add_attr_noises(dataset: Dataset,
                     inplace: bool = False) -> Dataset:
     """
     Add attribute noise to graphs in a PlanetAlign dataset by flipping node attributes.
+    
     Parameters
     ----------
     dataset : PyG dataset
@@ -267,3 +269,94 @@ def add_attr_noises(dataset: Dataset,
         dataset.pyg_graphs[gid].x = x
 
     return dataset
+
+
+def perturb_supervision(dataset: Dataset,
+                        noise_ratio: float,
+                        src_gid: int = 0,
+                        dst_gid: int = 1,
+                        seed: Optional[int] = None) -> torch.Tensor:
+    """
+    Add supervision noise to PyNetAlign dataset object
+
+    Parameters
+    ----------
+    dataset : Dataset
+        The input dataset containing graphs.
+    noise_ratio: float
+        The ratio of supervision to perturb.
+    src_gid : int, optional
+        The graph ID of the source graph. Default is 0.
+    dst_gid : int, optional
+        The graph ID of the destination graph. Default is 1.
+    seed : int, optional
+        Random seed for reproducibility.
+    """
+
+    assert 0 <= noise_ratio <= 1, "Noise ratio must be between 0 and 1."
+    assert src_gid < len(dataset.pyg_graphs), f"Source graph ID {src_gid} is out of range."
+    assert dst_gid < len(dataset.pyg_graphs), f"Destination graph ID {dst_gid} is out of range."
+    assert src_gid != dst_gid, "Source and destination graph IDs must be different."
+
+    rng_state = None
+    if seed is not None:
+        rng_state = torch.get_rng_state()
+        torch.manual_seed(seed)
+
+    dst_test_nodes = torch.unique(dataset.test_data[:, dst_gid])
+    dst_nodes = torch.arange(dataset.pyg_graphs[dst_gid].num_nodes)
+    candidate_noisy_dst_anchors = dst_nodes[~torch.isin(dst_nodes, dst_test_nodes)]
+
+    noisy_train_data = dataset.train_data.clone()
+    num_noisy_src_anchors = int(len(dataset.train_data) * noise_ratio)
+    noisy_src_anchors_idx = torch.randperm(len(dataset.train_data))[:num_noisy_src_anchors]
+    for noisy_src_anchor_idx in noisy_src_anchors_idx:
+        dst_anchor = dataset.train_data[noisy_src_anchor_idx, dst_gid]
+        noisy_anchor = dst_anchor
+        while noisy_anchor == dst_anchor:
+            noisy_anchor = candidate_noisy_dst_anchors[
+                torch.randint(0, len(candidate_noisy_dst_anchors), (1,)).item()
+            ]
+        noisy_train_data[noisy_src_anchor_idx, dst_gid] = noisy_anchor
+
+    if seed is not None:
+        torch.set_rng_state(rng_state)
+
+    return noisy_train_data
+
+
+def add_sup_noises(dataset: Dataset,
+                   noise_ratio: float,
+                   src_gid: int = 0,
+                   dst_gid: int = 1,
+                   seed: Optional[int] = None,
+                   inplace: bool = False) -> Dataset:
+    """
+    Add supervision noise to graphs in a PyNetAlign dataset by setting noisy anchors.
+
+    Parameters
+    ----------
+    dataset : Dataset
+        The input dataset containing graphs.
+    noise_ratio: float
+        The ratio of supervision to perturb.
+    src_gid : int, optional
+        The graph ID of the source graph. Default is 0.
+    dst_gid : int, optional
+        The graph ID of the destination graph. Default is 1.
+    seed : int, optional
+        Random seed for reproducibility.
+    inplace : bool, optional
+        If True, modify the dataset in place. Otherwise, return a new dataset.
+
+    Returns
+    -------
+    PyG dataset
+        The dataset with perturbed supervision.
+    """
+
+    if not inplace:
+        dataset = dataset.clone()
+    dataset.train_data = perturb_supervision(dataset, noise_ratio, src_gid, dst_gid, seed)
+    return dataset
+

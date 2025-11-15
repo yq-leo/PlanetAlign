@@ -41,7 +41,7 @@ Here is an example that benchmarks the ``FINAL`` algorithm on the ``PhoneEmail``
     model.train(data, gids=[0, 1], logger=logger)
 
     # Evaluate using built-in metrics
-    result = model.test(data, gids=[0, 1],)
+    result = model.test(data, gids=[0, 1])
 
     print("Evaluation metrics:")
     for metric, value in result.items():

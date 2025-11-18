@@ -18,7 +18,7 @@ from .sampling import *
 
 class NetTrans(BaseModel):
     r"""Embedding-based method NetTrans for pairwise network alignment via network transformation.
-    NetTrans is proposed by the paper "`NetTrans: Neural Cross-Network Transformation. <https://www.ijcai.org/Proceedings/16/Papers/254.pdf>`_"
+    NetTrans is proposed by the paper "`NetTrans: Neural Cross-Network Transformation. <https://dl.acm.org/doi/10.1145/3394486.3403141>`_"
     in KDD 2020.
 
     Parameters

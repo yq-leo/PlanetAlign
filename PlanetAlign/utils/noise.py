@@ -220,7 +220,7 @@ def add_attr_noises(dataset: Dataset,
                     seed: Optional[int] = None,
                     inplace: bool = False) -> Dataset:
     """
-    Add attribute noise to graphs in a PlanetAlign dataset by flipping node attributes.
+    Add attribute noise to graphs in a PlanetAlign dataset by perturbing node attributes.
     
     Parameters
     ----------
@@ -277,7 +277,7 @@ def perturb_supervision(dataset: Dataset,
                         dst_gid: int = 1,
                         seed: Optional[int] = None) -> torch.Tensor:
     """
-    Add supervision noise to PyNetAlign dataset object
+    Add supervision noise to PlanetAlign dataset object
 
     Parameters
     ----------
@@ -332,7 +332,7 @@ def add_sup_noises(dataset: Dataset,
                    seed: Optional[int] = None,
                    inplace: bool = False) -> Dataset:
     """
-    Add supervision noise to graphs in a PyNetAlign dataset by setting noisy anchors.
+    Add supervision noise to graphs in a PlanetAlign dataset by injecting noisy anchors.
 
     Parameters
     ----------
@@ -359,4 +359,3 @@ def add_sup_noises(dataset: Dataset,
         dataset = dataset.clone()
     dataset.train_data = perturb_supervision(dataset, noise_ratio, src_gid, dst_gid, seed)
     return dataset
-

@@ -38,3 +38,4 @@ Welcome to PlanetAlign's documentation!
    modules/algorithms
    modules/metrics
    modules/logger
+   modules/utils

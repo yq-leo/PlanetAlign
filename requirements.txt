@@ -7,3 +7,4 @@ torchaudio
 torch_geometric
 gdown
 POT
+seaborn

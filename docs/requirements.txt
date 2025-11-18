@@ -6,3 +6,4 @@ torch
 torch_geometric
 gdown
 POT
+seaborn

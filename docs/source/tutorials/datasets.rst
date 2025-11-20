@@ -110,5 +110,5 @@ Summary
 
 .. tip::
 
-    For advanced users, you can subclass ``BaseData`` to add your own loading logic for large-scale or dynamically generated graphs.
+    For advanced users, you can subclass ``BaseData`` to add your own loading logic for large-scale or dynamically generated graphs. APIs designed specifically for dynmaic graphs will be included in future releases.
 

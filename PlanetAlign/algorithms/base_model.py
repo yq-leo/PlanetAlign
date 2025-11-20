@@ -19,6 +19,14 @@ class BaseModel:
               dataset: Dataset,
               gids: Union[List[int], Tuple[int, ...]],
               *args, **kwargs):
+        """
+        Parameters
+        ----------
+        dataset : Dataset
+            The dataset containing the graphs to be aligned and the training/test data.
+        gids : list[int] or tuple[int, ...]
+            The indices of the graphs in the dataset to be aligned.
+        """
         raise NotImplementedError
 
     def test(self,

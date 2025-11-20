@@ -15,7 +15,10 @@ class BaseModel:
         self.device = 'cpu'
         self.S = None
 
-    def train(self, *args, **kwargs):
+    def train(self, 
+              dataset: Dataset,
+              gids: Union[List[int], Tuple[int, ...]],
+              *args, **kwargs):
         raise NotImplementedError
 
     def test(self,

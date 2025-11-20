@@ -1,3 +1,4 @@
+from typing import List, Union, Tuple
 import torch
 import torch.nn.functional as F
 from torch_geometric.utils import to_dense_adj
@@ -33,8 +34,7 @@ class IsoRank(BaseModel):
 
     def train(self,
               dataset: Dataset,
-              gid1: int,
-              gid2: int,
+              gids: Union[Tuple[int, int], List[int]],
               use_attr: bool = False,
               total_epochs: int = 100,
               tol: float = 1e-10,
@@ -45,10 +45,8 @@ class IsoRank(BaseModel):
         ----------
         dataset : Dataset
             The dataset containing graphs to be aligned and the training/test data.
-        gid1 : int
-            The graph id of the first graph to be aligned.
-        gid2 : int
-            The graph id of the second graph to be aligned.
+        gids : tuple[int, int] or list[int]
+            The indices of the two graphs in the dataset to be aligned.
         use_attr : bool, optional
             Flag for using attributes. **Must be False for IsoRank**. Default is False.
         total_epochs : int, optional
@@ -66,7 +64,8 @@ class IsoRank(BaseModel):
         """
 
         assert tol > 0, 'Tolerance must be positive'
-        self.check_inputs(dataset, (gid1, gid2), plain_method=True, use_attr=use_attr, pairwise=True, supervised=True)
+        self.check_inputs(dataset, gids, plain_method=True, use_attr=use_attr, pairwise=True, supervised=True)
+        gid1, gid2 = gids
 
         logger = self.init_training_logger(dataset, use_attr, additional_headers=['memory', 'infer_time'], save_log=save_log)
         process = psutil.Process(os.getpid())

@@ -1,3 +1,4 @@
+from typing import Union, Tuple, List
 import torch
 import torch.nn.functional as F
 from torch.utils.data import DataLoader
@@ -81,8 +82,7 @@ class NeXtAlign(BaseModel):
 
     def train(self,
               dataset: Dataset,
-              gid1: int,
-              gid2: int,
+              gids: Union[Tuple[int, int], List[int]],
               use_attr: bool = True,
               total_epochs: int = 50,
               save_log: bool = True,
@@ -92,10 +92,8 @@ class NeXtAlign(BaseModel):
         ----------
         dataset : Dataset
             The dataset containing the graphs to be aligned and the training/test data.
-        gid1 : int
-            The index of the first graph in the dataset to be aligned.
-        gid2 : int
-            The index of the second graph in the dataset to be aligned.
+        gids : tuple[int, int] or list[int]
+            The indices of the graphs in the dataset to be aligned.
         use_attr : bool, optional
             Whether to use node attributes in the model. Default is True.
         total_epochs : int, optional
@@ -106,7 +104,8 @@ class NeXtAlign(BaseModel):
             Whether to print the training progress. Default is True.
         """
 
-        self.check_inputs(dataset, (gid1, gid2), plain_method=False, use_attr=use_attr, pairwise=True, supervised=True)
+        self.check_inputs(dataset, gids, plain_method=False, use_attr=use_attr, pairwise=True, supervised=True)
+        gid1, gid2 = gids
 
         if dataset.pyg_graphs[gid1].num_nodes > dataset.pyg_graphs[gid2].num_nodes:
             gid1, gid2 = gid2, gid1

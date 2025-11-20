@@ -1,4 +1,5 @@
 import time
+from typing import List, Tuple, Union
 import torch
 from torch.optim.lr_scheduler import CosineAnnealingLR
 import psutil
@@ -49,8 +50,7 @@ class BRIGHT(BaseModel):
 
     def train(self,
               dataset: Dataset,
-              gid1: int,
-              gid2: int,
+              gids: Union[Tuple[int, int], List[int]],
               use_attr: bool = True,
               total_epochs: int = 250,
               save_log: bool = True,
@@ -71,7 +71,8 @@ class BRIGHT(BaseModel):
             Whether to print the progress during training. Default is True.
         """
 
-        self.check_inputs(dataset, (gid1, gid2), plain_method=False, use_attr=use_attr, pairwise=True, supervised=True)
+        self.check_inputs(dataset, gids, plain_method=False, use_attr=use_attr, pairwise=True, supervised=True)
+        gid1, gid2 = gids
 
         logger = self.init_training_logger(dataset, use_attr, additional_headers=['memory', 'infer_time'], save_log=save_log)
         process = psutil.Process(os.getpid())

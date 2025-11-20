@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, Union, Tuple, List
 import time
 import torch
 import torch.nn.functional as F
@@ -50,8 +50,7 @@ class SLOTAlign(BaseModel):
 
     def train(self,
               dataset: Dataset,
-              gid1: int,
-              gid2: int,
+              gids: Union[Tuple[int, int], List[int]],
               use_attr: bool = True,
               total_epochs: int = 900,
               joint_epochs: int = 100,
@@ -62,10 +61,8 @@ class SLOTAlign(BaseModel):
         ----------
         dataset : Dataset
             The dataset object containing the graphs and anchor links.
-        gid1 : int
-            The index of the first graph to be aligned.
-        gid2 : int
-            The index of the second graph to be aligned.
+        gids : tuple[int, int] or list[int]
+            The indices of the two graphs in the dataset to be aligned.
         use_attr : bool, optional
             Whether to use node attributes for alignment. The default is True.
         total_epochs : int, optional
@@ -78,7 +75,8 @@ class SLOTAlign(BaseModel):
             Whether to print the progress of the optimization. The default is True.
         """
 
-        self.check_inputs(dataset, (gid1, gid2), plain_method=False, use_attr=use_attr, pairwise=True, supervised=False)
+        self.check_inputs(dataset, gids, plain_method=False, use_attr=use_attr, pairwise=True, supervised=False)
+        gid1, gid2 = gids
 
         logger = self.init_training_logger(dataset, use_attr, additional_headers=['memory', 'infer_time'], save_log=save_log)
         process = psutil.Process(os.getpid())

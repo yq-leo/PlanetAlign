@@ -1,3 +1,4 @@
+from typing import List, Tuple, Union
 import torch
 import numpy as np
 import torch.nn.functional as F
@@ -62,8 +63,7 @@ class REGAL(BaseModel):
     
     def train(self,
               dataset: Dataset,
-              gid1: int,
-              gid2: int,
+              gids: Union[Tuple[int, int], List[int]],
               use_attr: bool = True,
               save_log: bool = True,
               verbose: bool = True):
@@ -72,10 +72,8 @@ class REGAL(BaseModel):
         ----------
         dataset : Dataset
             The dataset containing the graphs to be aligned and the training/test data.
-        gid1 : int
-            The index of the first graph in the dataset to be aligned.
-        gid2 : int
-            The index of the second graph in the dataset to be aligned.
+        gids : tuple[int, int] or list[int]
+            The indices of the graphs in the dataset to be aligned.
         use_attr : bool, optional
             Whether to use node and edge attributes for alignment. Default is True.
         save_log : bool, optional
@@ -83,7 +81,8 @@ class REGAL(BaseModel):
         verbose : bool, optional
             Whether to print the progress during training. Default is True.
         """
-        self.check_inputs(dataset, (gid1, gid2), plain_method=False, use_attr=use_attr, pairwise=True, supervised=False)
+        self.check_inputs(dataset, gids, plain_method=False, use_attr=use_attr, pairwise=True, supervised=False)
+        gid1, gid2 = gids
 
         logger = self.init_training_logger(dataset, use_attr, additional_headers=['memory', 'infer_time'], save_log=save_log)
         process = psutil.Process(os.getpid())

@@ -1,3 +1,4 @@
+from typing import List, Tuple, Union
 import time
 import torch
 import torch.nn.functional as F
@@ -58,8 +59,7 @@ class PARROT(BaseModel):
 
     def train(self,
               dataset: Dataset,
-              gid1: int,
-              gid2: int,
+              gids: Union[Tuple[int, int], List[int]],
               use_attr: bool = True,
               max_iters_sep_rwr: int = 100,
               max_iters_prod_rwr: int = 50,
@@ -72,10 +72,8 @@ class PARROT(BaseModel):
         ----------
         dataset : Dataset
             The dataset containing graphs to be aligned and the training/test data.
-        gid1 : int
-            The graph id of the first graph to be aligned.
-        gid2 : int
-            The graph id of the second graph to be aligned.
+        gids : tuple[int, int] or list[int]
+            The indices of the two graphs in the dataset to be aligned.
         use_attr : bool, optional
             Flag for using attributes. Default is True.
         max_iters_sep_rwr : int, optional
@@ -92,7 +90,8 @@ class PARROT(BaseModel):
             Flag for printing the logs. Default is True.
         """
 
-        self.check_inputs(dataset, (gid1, gid2), plain_method=False, use_attr=use_attr, pairwise=True, supervised=True)
+        self.check_inputs(dataset, gids, plain_method=False, use_attr=use_attr, pairwise=True, supervised=True)
+        gid1, gid2 = gids
 
         logger = self.init_training_logger(dataset, use_attr, additional_headers=['memory', 'infer_time'], save_log=save_log)
         process = psutil.Process(os.getpid())

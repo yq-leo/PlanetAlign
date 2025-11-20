@@ -1,4 +1,5 @@
 import time
+from typing import List, Union, Tuple
 import torch
 import torch.nn.functional as F
 from torch_geometric.utils import to_dense_adj
@@ -33,8 +34,7 @@ class FINAL(BaseModel):
 
     def train(self, 
               dataset: Dataset,
-              gid1: int,
-              gid2: int,
+              gids: Union[Tuple[int, int], List[int]],
               use_attr: bool = True,
               total_epochs: int = 50,
               tol: float = 1e-10,
@@ -45,10 +45,8 @@ class FINAL(BaseModel):
         ----------
         dataset : Dataset
             The dataset containing the graphs to be aligned and the training/test data.
-        gid1 : int
-            The index of the first graph in the dataset to be aligned.
-        gid2 : int
-            The index of the second graph in the dataset to be aligned.
+        gids : tuple[int, int] or list[int]
+            The indices of the two graphs in the dataset to be aligned.
         use_attr : bool, optional
             Whether to use node and edge attributes for alignment. Default is True.
         total_epochs : int, optional
@@ -62,7 +60,8 @@ class FINAL(BaseModel):
         """
 
         assert tol > 0, 'Tolerance must be positive'
-        self.check_inputs(dataset, (gid1, gid2), plain_method=False, use_attr=use_attr, pairwise=True, supervised=True)
+        self.check_inputs(dataset, gids, plain_method=False, use_attr=use_attr, pairwise=True, supervised=True)
+        gid1, gid2 = gids
 
         logger = self.init_training_logger(dataset, use_attr, additional_headers=['memory', 'infer_time'], save_log=save_log)
         process = psutil.Process(os.getpid())

@@ -1,4 +1,4 @@
-from ast import List, Tuple, Union
+from typing import List, Tuple, Union
 import numpy as np
 import torch.nn.functional as F
 from torch.utils.data import DataLoader

@@ -1,4 +1,4 @@
-from ast import List, Tuple, Union
+from typing import List, Tuple, Union
 import time
 import torch
 import torch.nn.functional as F

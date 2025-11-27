@@ -1,11 +1,16 @@
 [build-system]
-requires = ["flit_core >=3.2,<4"]
-build-backend = "flit_core.buildapi"
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
 
 [project]
 name = "PlanetAlign"
-authors = [{ name = "PLANETALIGN", email = "" }]
-dynamic = ["version", "description"]
+version = "0.1.0"
+description = "PlanetAlign is a Python library for network alignment (NA) tasks"
+readme = "README.md"
+authors = [
+    { name = "PLANETALIGN", email = "PlanetAlign.resource@gmail.com" }
+]
+requires-python = ">=3.9"
 dependencies = [
     "numpy",
     "matplotlib",
